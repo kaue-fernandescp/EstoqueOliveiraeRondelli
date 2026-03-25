@@ -15,7 +15,7 @@ O sistema consiste numa aplicação de estoque para registrar as movimentações
 - core/: Páginas institucionais e arquivos estáticos globais.
 
 🔧 Como Executar o Projeto
-- Clone o repositório: git clone https://github.com/seu-usuario/EstoqueOliveiraeRondelli.git
+- Clone o repositório: git clone https://github.com/kaue-fernancescp/EstoqueOliveiraeRondelli.git
 
 - Crie um ambiente virtual: python -m venv venv
 
