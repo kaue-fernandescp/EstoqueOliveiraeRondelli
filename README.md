@@ -11,9 +11,8 @@ O sistema consiste numa aplicação de estoque para registrar as movimentações
 - Front-end: Django Templates, HTML5 e CSS3 modular.
 
 📂 Estrutura de Pastas (Principais Apps)
-produtos/: Gerenciamento de itens de estoque e categorias.
-unidades/: Controle de métricas e unidades de medida.
-core/: Páginas institucionais e arquivos estáticos globais.
+- produtos/: Gerenciamento de itens de estoque e categorias.
+- core/: Páginas institucionais e arquivos estáticos globais.
 
 🔧 Como Executar o Projeto
 - Clone o repositório: git clone https://github.com/seu-usuario/EstoqueOliveiraeRondelli.git
