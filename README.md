@@ -1,5 +1,5 @@
-# ⚖️ EstoqueAdvocacia
-Este projeto é uma aplicação web completa desenvolvida para um escritório de advocacia. 
+# ⚖️ Oliveira & Rondelli Advocacia
+Este projeto é uma aplicação web completa desenvolvida para o escritório Oliveira & Rondelli Advocacia.
 
 🚀 Sobre o Projeto
 O sistema consiste numa aplicação de estoque para registrar as movimentações de entrada e saída dos produtos, bem como o cadastro de produtos. Além disso, conta com uma autenticação apra registro e auditorias. O sistema foi construído utilizando o framework Django.
