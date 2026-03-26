@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/style2.css' %}">
+    <title>Estoque Oliveira e Rondelli</title>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="{% url 'index' %}">Estoque Oliveira e Rondelli</a></li>
+                    <li><a href="{% url 'produtos' %}">Produtos</a></li>
+                    <li><a href="{% url 'unidades' %}">Unidades</a></li>
+                    <li><a href="{% url 'index' %}">Movimentações</a></li>
+                </ul>
+                <div class="user-auth">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Sair</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Entrar</a>
+                        <a href="{% url 'registrar' %}">Registrar</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </main>
+    <footer>
+        <p>Aplicação desenvolvida por <b>Kauê Fernandes</b>.</p>
+    </footer>
+</body>
+</html>

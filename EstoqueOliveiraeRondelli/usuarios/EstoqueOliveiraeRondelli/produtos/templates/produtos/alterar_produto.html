@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Oliveira e Rondelli</title>
+</head>
+<body>
+    {% block content %}
+    <button><a href="{% url 'produto' produto.id %}">Voltar</a></button>
+    <br>
+    <form action="{% url 'alterar_produto' produto.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Salvar</button>
+    </form>
+    {% endblock content %}
+</body>
+</html>
