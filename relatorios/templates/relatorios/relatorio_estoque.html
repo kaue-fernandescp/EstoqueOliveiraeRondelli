@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Oliveira e Rondelli</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Estoque Atual</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Referência</th>
+                <th>Unidade</th>
+                <th>Custo (R$)</th>
+                <th>Quantidade em Estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.pro_descricao }}</td>
+                <td>{{ produto.pro_referencia }}</td>
+                <td>{{ produto.pro_unidade }}</td>
+                <td>{{ produto.pro_preco }}</td>
+                <td>{{ produto.pro_saldo }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>Nenhum produto cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <button onclick="window.print()">Imprimir</button>
+    </div>
+    {% endblock content %}
+</body>
+</html>

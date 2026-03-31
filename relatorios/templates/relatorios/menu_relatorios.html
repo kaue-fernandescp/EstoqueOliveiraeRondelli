@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Oliveira e Rondelli</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Seleção de Relatórios</h1>
+    <p>Selecione o relatório que você deseja gerar:</p>
+    <div>
+        <div>
+            <h3>Estoque</h3>
+            <p>Lista completa dos produtos em estoque.</p>
+            <button><a href="{% url 'relatorio_estoque' %}">Gerar</a></button>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>
