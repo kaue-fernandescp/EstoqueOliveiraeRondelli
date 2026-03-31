@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',                       # Biblioteca que permite criar filtros para pesquisa
     'core',                                 # Meu projeto vai visualizar o core como um app pra ser utilizado  
-    'produtos',                             # Meu projeto vai visualizar o produto como um app pra ser utilizado  
+    'produtos',                             # Meu projeto vai visualizar o produtos como um app pra ser utilizado  
     'usuarios',                             # Meu projeto vai visualizar o usuarios como um app
-    'movimentacoes',                        # Meu projeto vai visualizar as movimentacoes como um app
+    'movimentacoes',                        # Meu projeto vai visualizar a movimentacoes como um app
+    'relatorios',                           # Meu projeto vai visualizar o relatorios como um app
 ]
 
 MIDDLEWARE = [
