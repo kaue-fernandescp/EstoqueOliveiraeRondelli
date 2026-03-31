@@ -5,12 +5,14 @@ from django.urls import reverse
 from .models import Movimentacao
 from .forms import MovimentacaoForm
 
+# Função para retornar as movimentações apenas se o usuário estiver logado
 @login_required
 def lista_movimentacoes(request):
     movimentacoes = Movimentacao.objects.order_by('-mov_data_adicionada')
     context = {'movimentacoes': movimentacoes}
     return render(request, 'movimentacoes/lista_movimentacoes.html', context)
 
+# Função para adicionar uma nova movimentação apenas se o usuário estiver logado
 @login_required
 def nova_movimentacao(request):
     if request.method != 'POST':

@@ -3,5 +3,5 @@ from core.views import index
 
 
 urlpatterns = [
-    path('core/', index, name = 'index'),                        # Caminho para a página inicial
+    path('core/', index, name = 'index'),           # Caminho para a página inicial
 ]

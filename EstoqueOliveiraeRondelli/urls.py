@@ -20,11 +20,11 @@ from django.contrib.auth import views as auth_views
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),                        # Caminho para a página do administrador
-    path('', RedirectView.as_view(url='login/')),                   # Redireciona para a página de login
-    path('login/', auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),
-    path('core/', include('core.urls')),                    # Caminho para a página inicial
-    path('produtos/', include('produtos.urls')),            # Incluir urls.py do App Produtos
-    path('usuarios/', include('usuarios.urls')),             # Incluir urls.py do App Usuários
-    path('movimentacoes/', include('movimentacoes.urls')), 
+    path('admin/', admin.site.urls),                                                                    # Caminho para a página do administrador
+    path('', RedirectView.as_view(url='login/')),                                                       # Redireciona para a página de login
+    path('login/', auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),    # Caminho para a tela de login
+    path('core/', include('core.urls')),                                                                # Incluir urls.py do App Core
+    path('produtos/', include('produtos.urls')),                                                        # Incluir urls.py do App Produtos
+    path('usuarios/', include('usuarios.urls')),                                                        # Incluir urls.py do App Usuários
+    path('movimentacoes/', include('movimentacoes.urls')),                                              # Incluir urls.py do App Movimentações
 ]

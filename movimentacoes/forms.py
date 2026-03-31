@@ -1,6 +1,7 @@
 from django import forms
 from .models import Movimentacao
 
+# Formulário para adicionar uma nova movimentação
 class MovimentacaoForm(forms.ModelForm):
     class Meta:
         model = Movimentacao
@@ -15,6 +16,7 @@ class MovimentacaoForm(forms.ModelForm):
             'Quantidade': ''
         }
 
+    # Retorna um erro caso a quantidade de saída seja superior ao estoque atual
     def clean(self):
         cleaned_data = super().clean()
         produto = cleaned_data.get('mov_produto')
