@@ -6,21 +6,21 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from .forms import UserCreationFormCustomizado
 
-# Realiza o logout do usuário
+# Função que realiza o logou do usuário
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-# Verifica se o usuário é Admin
+# Função que verifica se o usuário é Admin
 def verifica_admin(usuario):
     return usuario.is_superuser
 
-# Realizar o registro de usuários
+# Função que realiza o cadastro de usuários apenas se o usuário for Admin
 @user_passes_test(verifica_admin)
 def registrar_usuarios(request):
-    if request.method != 'POST':                # Formulário em branco
+    if request.method != 'POST':                
         form = UserCreationFormCustomizado()
-    else:                                       # Processa o formulário preenchido
+    else:                                       
         form = UserCreationFormCustomizado(data=request.POST)
         if form.is_valid():
             novo_usuario = form.save(commit=False)
@@ -32,7 +32,7 @@ def registrar_usuarios(request):
     context = {'form': form}
     return render(request, 'usuarios/registrar_usuario.html', context)
 
-# Mostra os usuários
+# Função que retornar os usuários cadastrados apenas se o usuário for Admin
 @user_passes_test(verifica_admin)
 def lista_usuarios (request):
     usuarios = User.objects.order_by('username')

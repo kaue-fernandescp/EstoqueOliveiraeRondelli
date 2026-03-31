@@ -1,6 +1,7 @@
 from django import forms
 from .models import Produtos, Unidades
 
+# Formulário para adicionar um novo produto
 class ProdutosForm(forms.ModelForm):
     class Meta:
         model = Produtos
@@ -12,7 +13,8 @@ class ProdutosForm(forms.ModelForm):
                  'Descrição': '',
                  'Unidade': '',
                  'Preço': ''}
-        
+
+# Formulário para adicionar uma nova unidade
 class UnidadesForm(forms.ModelForm):
     class Meta:
         model = Unidades

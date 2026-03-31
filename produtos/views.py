@@ -5,40 +5,38 @@ from django.contrib.auth.decorators import login_required
 from .models import Produtos, Unidades
 from .forms import ProdutosForm, UnidadesForm
 
-# Produtos
-
-# Mostra os produtos
+# Função para retornar os produtos cadastrados apenas se o usuário estiver logado
 @login_required
 def lista_produtos(request):
     produtos = Produtos.objects.order_by('pro_descricao')
     context = {'produtos': produtos}
     return render(request, 'produtos/lista_produtos.html', context)
 
-# Detalhes de algum produto
+# Função para retornar os detalhes de algum produto apenas se o usuário estiver logado
 @login_required
 def visualiza_produto(request, id):
     produto = Produtos.objects.get(id = id)
     context = {'produto': produto}
     return render(request, 'produtos/produto.html', context)
 
-# Adiciona um produto
+# Função para adicionar um novo produto apenas se o usuário estiver logado
 @login_required
-def novo_produto(request):                      # Geralmente, um formulário é recebido como método POST
-    if request.method != 'POST':                # Dados não informados
+def novo_produto(request):                      
+    if request.method != 'POST':                
         form = ProdutosForm()
-    else:                                       # Dados informados
+    else:                                      
         form = ProdutosForm(request.POST)
-        if form.is_valid():                     # Validação do formulário
+        if form.is_valid():                    
             form.save()
             return HttpResponseRedirect(reverse('produtos'))
     context = {'form': form}
     return render(request, 'produtos/novo_produto.html', context)
 
-# Editar algum produto
+# Função para editar o produto apenas se o usuário estiver logado
 @login_required
 def alterar_produto(request, id):
     produto = Produtos.objects.get(id=id)
-    if request.method != 'POST':                    # Formulário do produto já existente
+    if request.method != 'POST':                   
         form = ProdutosForm(instance=produto)
     else:
         form = ProdutosForm(instance=produto, data=request.POST)
@@ -48,16 +46,14 @@ def alterar_produto(request, id):
     context = {'produto': produto, 'form': form}
     return render(request, 'produtos/alterar_produto.html', context)
 
-# Unidades
-
-# Mostra as unidades
+# Função para retornar as unidades cadastradas apenas se o usuário estiver logado
 @login_required
 def lista_unidades(request):
     unidades = Unidades.objects.order_by('uni_nome')
     context = {'unidades': unidades}
     return render(request, 'unidades/lista_unidades.html', context)
 
-# Adicionar uma unidade
+# Função para adicionar uma nova unidade apenas se o usuário estiver logado
 @login_required
 def nova_unidade(request):
     if request.method != 'POST':               
