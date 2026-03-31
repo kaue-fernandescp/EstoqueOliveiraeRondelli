@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Oliveira e Rondelli</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Movimentações</h1>
+    <ul>
+        {% for movimentacao in movimentacoes %}
+            <li>Produto: {{ movimentacao.mov_produto }} - Tipo de Operação: {{ movimentacao.mov_tipo }}</li>
+            <p>Quantidade: {{ movimentacao.mov_quantidade }} - Saldo após movimentação: {{ movimentacao.mov_saldo_movimento }}</p>
+            <p>Movimentação feita em {{ movimentacao.mov_data_adicionada }}</p>
+            <br>
+        {% empty %}
+            <li>Não existe movimentação feita.</li>
+        {% endfor %}
+    </ul>
+    <div>
+        <button><a href="{% url 'nova_movimentacao' %}">Nova Movimentação</a></button>
+    </div>
+    {% endblock content %}
+</body>
+</html>

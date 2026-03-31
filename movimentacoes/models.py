@@ -15,15 +15,16 @@ class Movimentacao(models.Model):
     mov_usuario = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Usuário')
     mov_quantidade = models.PositiveIntegerField('Quantidade relativa à Unidade de Medida')
     mov_tipo = models.CharField('Tipo de Movimentação', max_length=1, choices=TIPO_MOVIMENTACAO)
+    mov_saldo_movimento = models.IntegerField('Saldo no momento:', editable=False, null=True)
     mov_data_adicionada = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.mov_produto} - {self.mov_produto.pro_unidade}"
+        return f"{self.mov_produto} - {self.mov_produto.pro_unidade.uni_sigla}"
 
     # Realiza cálculo automático do saldo
-    def saldo(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         with transaction.atomic():
-            produto = self.mov_produto
+            produto = Produtos.objects.select_for_update().get(pk=self.mov_produto.pk)
             if self.mov_tipo == 'E':
                 produto.pro_saldo += self.mov_quantidade
             else:
@@ -32,6 +33,7 @@ class Movimentacao(models.Model):
                 else:
                     produto.pro_saldo -= self.mov_quantidade
             produto.save()
+            self.mov_saldo_movimento = produto.pro_saldo
             super().save(*args, **kwargs)
 
 
