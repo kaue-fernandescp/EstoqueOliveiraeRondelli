@@ -18,6 +18,7 @@ class Movimentacao(models.Model):
     mov_quantidade = models.PositiveIntegerField('Quantidade relativa à Unidade de Medida')                                     # Quantidade da movimentação
     mov_tipo = models.CharField('Tipo de Movimentação', max_length=1, choices=TIPO_MOVIMENTACAO)                                # Tipo da movimentação
     mov_saldo_movimento = models.IntegerField('Saldo no momento:', editable=False, null=True)                                   # Saldo do produto após movimentação
+    mov_custo = models.DecimalField('Valor da Compra', max_digits=10, decimal_places=2, null=True, blank=True)                   # Preço do produto que está entrando
     mov_data_adicionada = models.DateTimeField(auto_now_add=True)                                                               # Data que foi adicionada
 
     # Retorna --> Produto - Unidade
@@ -30,11 +31,13 @@ class Movimentacao(models.Model):
             produto = Produtos.objects.select_for_update().get(pk=self.mov_produto.pk)
             if self.mov_tipo == 'E':
                 produto.pro_saldo += self.mov_quantidade
+                produto.pro_custo_medio = produto.custo_medio()
             else:
                 if self.mov_tipo == 'S' and produto.pro_saldo < self.mov_quantidade:
                     raise ValueError('Saldo em estoque insuficiente.')
                 else:
                     produto.pro_saldo -= self.mov_quantidade
+
             produto.save()
             self.mov_saldo_movimento = produto.pro_saldo
             super().save(*args, **kwargs)

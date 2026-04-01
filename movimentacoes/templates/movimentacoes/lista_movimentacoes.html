@@ -10,7 +10,8 @@
     {% block content %}
     <h1>Movimentações</h1>
     <div>
-        <button><a href="{% url 'nova_movimentacao' %}">Nova Movimentação</a></button>
+        <button><a href="{% url 'nova_entrada' %}">Nova Entrada</a></button>
+        <button><a href="{% url 'nova_saida' %}">Nova Saída</a></button>
     </div>
     <form method="get">
         {{ filtro.form.as_p }}
@@ -19,8 +20,11 @@
     </form>
     <ul>
         {% for movimentacao in movimentacoes %}
-            <li>Produto: {{ movimentacao.mov_produto }} - Tipo de Operação: {{ movimentacao.mov_tipo }}</li>
-            <p>Quantidade: {{ movimentacao.mov_quantidade }} - Saldo após movimentação: {{ movimentacao.mov_saldo_movimento }}</p>
+            <li>Produto: {{ movimentacao.mov_produto }}</li>
+            <p>Tipo de Operação: {{ movimentacao.mov_tipo }}</p>
+            <p>Quantidade: {{ movimentacao.mov_quantidade }}</p>
+            <p>Valor: {{ movimentacao.mov_custo }}</p>
+            <p>Saldo após movimentação: {{ movimentacao.mov_saldo_movimento }}</p>
             <p>Movimentação feita em {{ movimentacao.mov_data_adicionada|date:"d/m/Y H:i" }}</p>
             <br>
         {% empty %}

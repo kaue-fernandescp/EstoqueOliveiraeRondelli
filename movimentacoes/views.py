@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Movimentacao
-from .forms import MovimentacaoForm
+from .forms import *
 from .filters import FiltroMovimentacao
 
 # Função para retornar as movimentações apenas se o usuário estiver logado
@@ -15,17 +15,34 @@ def lista_movimentacoes(request):
                'filtro': filtro}
     return render(request, 'movimentacoes/lista_movimentacoes.html', context)
 
-# Função para adicionar uma nova movimentação apenas se o usuário estiver logado
+# Função para adicionar uma nova entrada apenas se o usuário estiver logado
 @login_required
-def nova_movimentacao(request):
+def nova_entrada(request):
     if request.method != 'POST':
-        form = MovimentacaoForm()
+        form = EntradaForm()
     else:
-        form = MovimentacaoForm(request.POST)
+        form = EntradaForm(request.POST)
         if form.is_valid():
             movimentacao = form.save(commit=False)
+            movimentacao.mov_tipo = 'E'
             movimentacao.mov_usuario = request.user
             movimentacao.save()
             return HttpResponseRedirect(reverse('movimentacoes'))
     context = {'form': form}
-    return render(request, 'movimentacoes/nova_movimentacao.html', context)
+    return render(request, 'movimentacoes/nova_entrada.html', context)
+
+# Função para adicionar uma nova entrada apenas se o usuário estiver logado
+@login_required
+def nova_saida(request):
+    if request.method != 'POST':
+        form = SaidaForm()
+    else:
+        form = SaidaForm(request.POST)
+        if form.is_valid():
+            movimentacao = form.save(commit=False)
+            movimentacao.mov_tipo = 'S'
+            movimentacao.mov_usuario = request.user
+            movimentacao.save()
+            return HttpResponseRedirect(reverse('movimentacoes'))
+    context = {'form': form}
+    return render(request, 'movimentacoes/nova_saida.html', context)

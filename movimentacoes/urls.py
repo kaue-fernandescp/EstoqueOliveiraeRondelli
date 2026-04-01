@@ -3,5 +3,6 @@ from movimentacoes import views
 
 urlpatterns = [
     path('movimentacoes/', views.lista_movimentacoes, name='movimentacoes'),            # Caminho para a lista das movimentações
-    path('nova_movimentacao/', views.nova_movimentacao, name='nova_movimentacao'),      # Caminho para adicionar uma nova movimentação
+    path('nova_entrada/', views.nova_entrada, name='nova_entrada'),                     # Caminho para adicionar uma nova entrada
+    path('nova_saida/', views.nova_saida, name='nova_saida'),                           # Caminho para adicionar uma nova saída
 ]
