@@ -7,12 +7,10 @@ class ProdutosForm(forms.ModelForm):
         model = Produtos
         fields = ['pro_referencia',
                   'pro_descricao',
-                  'pro_unidade',
-                  'pro_preco']
+                  'pro_unidade']
         label = {'Referência': '',
                  'Descrição': '',
-                 'Unidade': '',
-                 'Preço': ''}
+                 'Unidade': ''}
 
 # Formulário para adicionar uma nova unidade
 class UnidadesForm(forms.ModelForm):

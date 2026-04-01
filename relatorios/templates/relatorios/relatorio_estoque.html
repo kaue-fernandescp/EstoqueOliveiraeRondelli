@@ -25,7 +25,7 @@
                 <td>{{ produto.pro_descricao }}</td>
                 <td>{{ produto.pro_referencia }}</td>
                 <td>{{ produto.pro_unidade }}</td>
-                <td>{{ produto.pro_preco }}</td>
+                <td>{{ produto.custo_medio|floatformat:2 }}</td>
                 <td>{{ produto.pro_saldo }}</td>
             </tr>
             {% empty %}

@@ -24,7 +24,7 @@ class Produtos(models.Model):
     pro_referencia = models.CharField('Referência', max_length=20, default='SEM-REF')                           # Referência do produto
     pro_descricao = models.TextField('Descrição')                                                               # Descrição do produto
     pro_unidade = models.ForeignKey(Unidades, on_delete=models.PROTECT, verbose_name='Unidade', default=1)      # Chave estrangeira referenciando a unidade da tabela Unidades
-    pro_preco = models.DecimalField('Preço', decimal_places=2, max_digits=8, default=0)                         # Preço do produto
+    pro_custo_medio = models.DecimalField('movimentacoes.Movimentacao', decimal_places=2, max_digits=10)                        # Custo médio
     pro_saldo = models.IntegerField('Saldo', default=0)                                                         # Saldo do produto no estoque
     pro_data_adicionada = models.DateTimeField(auto_now_add=True)                                               # Data em que o produto foi adicionado
     pro_data_modificado = models.DateTimeField(auto_now=True)                                                   # Data em que o produto foi modificado
@@ -32,6 +32,26 @@ class Produtos(models.Model):
     # Retorna a descrição do produto
     def __str__(self):
         return self.pro_descricao
+    
+    # Função que realiza o cálculo do custo médio
+    def custo_medio(self):
+        from movimentacoes.models import Movimentacao
+        entradas = Movimentacao.objects.filter(mov_produto=self, mov_tipo='E', mov_custo__gt=0)
+        
+        if not entradas.exists():
+            return 0
+        
+        total_financeiro = 0
+        total_quantidade = 0
+        
+        for movimentacao in entradas:
+            total_financeiro += (movimentacao.mov_quantidade * movimentacao.mov_custo)
+            total_quantidade = (movimentacao.mov_quantidade) 
+
+        if total_quantidade > 0:
+            return total_financeiro / total_quantidade
+        else:
+            return 0
 
     # Metadados da tabela
     class Meta:                                        
