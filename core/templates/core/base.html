@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'core/style2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'imagens/favicon.ico' %}">
     <title>Estoque Oliveira e Rondelli</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
         <nav class="menu">
             <div class="nav-container">
                 <ul class="nav-list">
-                    <li><a href="{% url 'index' %}">Estoque Oliveira e Rondelli</a></li>
+                    <li ><a href="{% url 'index' %}"><img id="logo" src="{% static 'imagens/logo.png' %}" alt="Logo Oliveira e Rondelli"></a></li>
                     <li><a href="{% url 'produtos' %}">Produtos</a></li>
                     <li><a href="{% url 'unidades' %}">Unidades</a></li>
                     <li><a href="{% url 'movimentacoes' %}">Movimentações</a></li>
