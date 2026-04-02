@@ -10,6 +10,7 @@
     {% block content %}
     <p>Adicione uma nova unidade:</p>
     <br>
+    <button><a href="{% url 'unidades' %}">Voltar</a></button>
     <form action="{% url 'nova_unidade' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}

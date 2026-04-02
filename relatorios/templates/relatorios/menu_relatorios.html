@@ -10,11 +10,18 @@
     {% block content %}
     <h1>Seleção de Relatórios</h1>
     <p>Selecione o relatório que você deseja gerar:</p>
+    <br>
     <div>
         <div>
             <h3>Estoque</h3>
-            <p>Lista completa dos produtos em estoque.</p>
+            <p>Relatório completo dos produtos em estoque.</p>
             <button><a href="{% url 'relatorio_estoque' %}">Gerar</a></button>
+        </div>
+        <br>
+        <div>
+            <h3>Movimentações</h3>
+            <p>Relatório das movimentações feitas.</p>
+            <button><a href="{% url 'relatorio_movimentacoes' %}">Gerar</a></button>
         </div>
     </div>
     {% endblock content %}

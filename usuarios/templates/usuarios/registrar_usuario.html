@@ -8,6 +8,8 @@
 </head>
 <body>
     {% block content %}
+        <h1>Cadastro de Usuário</h1>
+        <button><a href="{% url 'usuarios' %}">Voltar</a></button>
         <form action="{% url 'registrar' %}" method='post'>
             {% csrf_token %}
             {{ form.as_p }}

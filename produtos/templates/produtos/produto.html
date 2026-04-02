@@ -12,10 +12,14 @@
         <ul>
             <li>Referência: {{ produto.pro_referencia }}</li>
             <li>Unidade de Medida: {{ produto.pro_unidade }}</li>
-            <li>Custo: R$ {{ produto.custo_medio|floatformat:2 }}</li>
+            <li>Custo Médio: R$ {{ produto.custo_medio|floatformat:2 }}</li>
+            <li>Quantidade em Estoque: {{ produto.pro_saldo }}</li>
         </ul>
         <br>
-        <button><a href="{% url 'alterar_produto' produto.id %}">Alterar Produto</a></button>
+        <div>
+            <button><a href="{% url 'alterar_produto' produto.id %}">Alterar Produto</a></button>
+            <button><a href="{% url 'produtos' %}">Voltar</a></button>
+        </div>
     {% endblock content %}
 </body>
 </html>

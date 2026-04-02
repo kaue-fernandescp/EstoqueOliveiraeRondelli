@@ -16,8 +16,9 @@
             <li>Não existe produto cadastrado.</li>
         {% endfor %}
     </ul>
-
-    <p>Para cadastrar uma nova unidade, clique <a href="{% url 'nova_unidade' %}">aqui</a>.</p>
+    <div>
+        <button><a href="{% url 'nova_unidade' %}">Nova Unidade</a></button>
+    </div>
     {% endblock content %}
 </body>
 </html>

@@ -15,7 +15,7 @@
                 <th>Produto</th>
                 <th>Referência</th>
                 <th>Unidade</th>
-                <th>Custo (R$)</th>
+                <th>Custo Médio (R$)</th>
                 <th>Quantidade em Estoque</th>
             </tr>
         </thead>
@@ -37,6 +37,7 @@
     </table>
     <div>
         <button onclick="window.print()">Imprimir</button>
+        <button><a href="{% url 'relatorios' %}">Voltar</a></button>
     </div>
     {% endblock content %}
 </body>
