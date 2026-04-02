@@ -18,6 +18,7 @@ O sistema consiste numa aplicação de estoque para registrar as movimentações
 - usuarios/: Gerenciamento dos usuários do sistema.
 - movimentacoes/: Gerenciamento do estoque com as operações de entrada e saída.
 - relatorios/: Relatórios do sistema.
+- static/: Estilização.
 
 
 🔧 Como Executar o Projeto
