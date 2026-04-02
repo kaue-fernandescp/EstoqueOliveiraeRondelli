@@ -6,25 +6,23 @@
 }
 
 .menu {
-    background-color: rgb(37, 37, 39);
     width: 100%;
-}
-
-.menu li {
-    display: inline;
 }
 
 .nav-container {
+    background-color: rgb(112, 112, 112);
     width: 100%;
-    padding: 0, 10px;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-list {
+.nav-list,
+.user-auth {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .nav-list li a,
@@ -44,10 +42,6 @@
     background-color: rgb(255, 255, 255);
     color: rgba(56, 66, 82);
     transition: background-color 0.3s;
-}
-
-.user-auth {
-    cursor: default;
 }
 
 .container {
