@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Estoque Oliveira e Rondelli</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <title>Oliveira e Rondelli</title>
 </head>
 <body>
     <header>
         <nav class="menu">
             <div class="nav-container">
                 <ul class="nav-list">
-                    <a href="{% url 'index' %}"><img src="{% static 'imagens/logo.png' %}" alt="Logo Oliveira e Rondelli"></a></li>
+                    <a href="{% url 'index' %}"><img id="logo" src="{% static 'imagens/logo.png' %}" alt="Logo Oliveira e Rondelli"></a></li>
                 </ul>
                 <div class="user-auth">
                     {% if user.is_authenticated %}
@@ -23,6 +23,7 @@
         </nav>
     </header>
     <main class="container">
+        <h1>Login</h1>
         {% block content %}
 
         {% endblock content %}
