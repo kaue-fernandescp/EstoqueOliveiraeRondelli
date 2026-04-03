@@ -14,12 +14,22 @@
     {% block content %}
         <h1>{{ produto.pro_descricao }}</h1>
         <div class="dados-produto">
-            <ul>
-                <li>Referência: {{ produto.pro_referencia }}</li>
-                <li>Unidade de Medida: {{ produto.pro_unidade }}</li>
-                <li>Custo Médio: R$ {{ produto.custo_medio|floatformat:2 }}</li>
-                <li>Quantidade em Estoque: {{ produto.pro_saldo }}</li>
-            </ul>
+            <div class="info-produto">
+                <span class="info-label">Referência:</span>
+                <span>{{ produto.pro_referencia }}</span>
+            </div>
+            <div class="info-produto">
+                <span class="info-label">Unidade de Medida:</span>
+                <span>{{ produto.pro_unidade }}</span>
+            </div>
+            <div class="info-produto">
+                <span class="info-label">Custo Médio:</span>
+                <span>R$ {{ produto.custo_medio|floatformat:2 }}</span>
+            </div>
+            <div class="info-produto">
+                <span class="info-label">Quantidade em Estoque:</span>
+                <span>R$ {{ produto.pro_saldo }}</span>
+            </div>
         </div>
         <div class="container-botao">
             <a href="{% url 'alterar_produto' produto.id %}"><button class="botao-alterar-produto">Alterar Produto</button></a>

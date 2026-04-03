@@ -5,20 +5,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block extra_css %}
+    {% block produto_css %}
         <link rel="stylesheet" href="{% static 'css/produtos.css' %}">
     {% endblock %}
-    <title>Estoque Oliveira e Rondelli</title>
+    <title>Oliveira e Rondelli - Produtos</title>
 </head>
 <body>
     {% block content %}
-    <button><a href="{% url 'produto' produto.id %}">Voltar</a></button>
-    <br>
     <form action="{% url 'alterar_produto' produto.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button name="submit">Salvar</button>
-    </form>
+        <div class="container-botao">
+            <a href="{% url 'produto' produto.id %}"><button class="botao-voltar">Voltar</button></a>
+            <button class="botao-salvar" name="submit">Salvar</button>
+        </div>
+        </form>
     {% endblock content %}
 </body>
 </html>
