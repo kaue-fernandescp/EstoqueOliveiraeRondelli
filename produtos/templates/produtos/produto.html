@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque Oliveira e Rondelli</title>
+    {% block produto_css %}
+        <link rel="stylesheet" href="{% static 'css/produtos.css' %}">
+    {% endblock %}
+    <title>Oliveira e Rondelli - Produtos</title>
 </head>
 <body>
     {% block content %}
         <h1>{{ produto.pro_descricao }}</h1>
-        <ul>
-            <li>Referência: {{ produto.pro_referencia }}</li>
-            <li>Unidade de Medida: {{ produto.pro_unidade }}</li>
-            <li>Custo Médio: R$ {{ produto.custo_medio|floatformat:2 }}</li>
-            <li>Quantidade em Estoque: {{ produto.pro_saldo }}</li>
-        </ul>
-        <br>
-        <div>
-            <button><a href="{% url 'alterar_produto' produto.id %}">Alterar Produto</a></button>
-            <button><a href="{% url 'produtos' %}">Voltar</a></button>
+        <div class="dados-produto">
+            <ul>
+                <li>Referência: {{ produto.pro_referencia }}</li>
+                <li>Unidade de Medida: {{ produto.pro_unidade }}</li>
+                <li>Custo Médio: R$ {{ produto.custo_medio|floatformat:2 }}</li>
+                <li>Quantidade em Estoque: {{ produto.pro_saldo }}</li>
+            </ul>
+        </div>
+        <div class="container-botao">
+            <a href="{% url 'alterar_produto' produto.id %}"><button class="botao-alterar-produto">Alterar Produto</button></a>
+            <a href="{% url 'produtos' %}"><button class="botao-alterar-produto">Voltar</button></a>
         </div>
     {% endblock content %}
 </body>

@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque Oliveira e Rondelli</title>
+    {% block produto_css %}
+        <link rel="stylesheet" href="{% static 'css/produtos.css' %}">
+    {% endblock %}
+    <title>Oliveira e Rondelli - Produtos</title>
 </head>
 <body>
     {% block content %}
     <h1>Produtos</h1>
-    <ul>
+    <ul class="lista_produtos">
         {% for produto in produtos %}
-            <li><a href="{% url 'produto' produto.id %}">{{ produto }}</a></li>
+            <a href="{% url 'produto' produto.id %}"><li>{{ produto }}</li></a>
         {% empty %}
             <li>Não existe produto cadastrado.</li>
         {% endfor %}
     </ul>
-    <div>
-        <button><a href="{% url 'novo_produto' %}">Novo Produto</a></button>
+    <div class="container-botao">
+        <a href="{% url 'novo_produto' %}"><button class="botao-novo-produto">Novo Produto</button></a>
     </div>
     {% endblock content %}
 </body>
