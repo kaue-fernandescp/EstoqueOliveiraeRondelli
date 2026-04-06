@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/relatorios.css' %}">
+    {% endblock %}
     <title>Estoque Oliveira e Rondelli</title>
 </head>
 <body>
     {% block content %}
     <h1>Estoque Atual</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Referência</th>
-                <th>Unidade</th>
-                <th>Custo Médio (R$)</th>
-                <th>Quantidade em Estoque</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for produto in produtos %}
-            <tr>
-                <td>{{ produto.pro_descricao }}</td>
-                <td>{{ produto.pro_referencia }}</td>
-                <td>{{ produto.pro_unidade }}</td>
-                <td>{{ produto.custo_medio|floatformat:2 }}</td>
-                <td>{{ produto.pro_saldo }}</td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>Nenhum produto cadastrado.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div>
-        <button onclick="window.print()">Imprimir</button>
-        <button><a href="{% url 'relatorios' %}">Voltar</a></button>
+    <div class="container-relatorio">
+        <table class="estoque">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Referência</th>
+                    <th>Unidade</th>
+                    <th>Custo Médio (R$)</th>
+                    <th>Quantidade em Estoque</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.pro_descricao }}</td>
+                    <td>{{ produto.pro_referencia }}</td>
+                    <td>{{ produto.pro_unidade }}</td>
+                    <td>{{ produto.custo_medio|floatformat:2 }}</td>
+                    <td>{{ produto.pro_saldo }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>Nenhum produto cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="container-botao">
+            <button class="botao-imprimir" onclick="window.print()">Imprimir</button>
+            <a href="{% url 'relatorios' %}"><button class="botao-voltar">Voltar</button></a>
+        </div>
     </div>
     {% endblock content %}
 </body>

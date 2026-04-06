@@ -13,12 +13,15 @@
 <body>
     {% block content %}
     <p>Adicione uma nova unidade:</p>
-    <br>
-    <button><a href="{% url 'unidades' %}">Voltar</a></button>
+    <div class="container-botao">
+        <a href="{% url 'unidades' %}"><button class="botao-voltar">Voltar</button></a>
+    </div>
     <form action="{% url 'nova_unidade' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button name="submit">Adicionar</button>
+        <div class="container-botao">
+            <button class="botao-salvar" name="submit">Adicionar</button>
+        </div>
     </form>
     {% endblock content %}
 </body>

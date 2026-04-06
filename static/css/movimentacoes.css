@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+    color: rgba(56, 66, 82);
+}
+
+#movimentacao {
+    text-align: center;
+    padding: 20px;
+}
+
+/*Container do Botão*/
+.container-botao {
+    text-align: center;
+    width: 100%;
+}
+
+/*Botões*/
+.botao-nova-entrada,
+.botao-nova-saida,
+.botao-voltar,
+.botao-salvar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    min-width: 150px;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(56, 66, 82);
+    background-color: #f8f9fa;
+    border: 2px solid rgba(56, 66, 82);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+/*Efeito ao passar o mouse nos Botões*/
+.botao-nova-entrada:hover,
+.botao-nova-saida:hover ,
+.botao-voltar:hover,
+.botao-salvar:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

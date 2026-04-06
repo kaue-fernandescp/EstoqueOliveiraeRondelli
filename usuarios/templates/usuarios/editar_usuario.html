@@ -6,22 +6,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block extra_css %}
-        <link rel="stylesheet" href="{% static 'css/produtos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
     {% endblock %}
-    <title>Oliveira e Rondelli - Produtos</title>
+    <title>Oliveira e Rondelli - Usuários</title>
 </head>
 <body>
     {% block content %}
-    <h1>Adicione um novo Produto</h1>
-    <br>
-    <a href="{% url 'produtos' %}"><button class="botao-voltar">Voltar</button></a>
-    <form action="{% url 'novo_produto' %}" method="post">
+    <form action="{% url 'usuario' usuario.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="container-botao">
-            <button class="botao-salvar" name="submit">Adicionar</button>
+            <a href="{% url 'usuarios' %}" class="botao-voltar">Voltar</a>
+            <button class="botao-salvar" name="submit">Salvar</button>
         </div>
-    </form>
+        </form>
     {% endblock content %}
 </body>
 </html>

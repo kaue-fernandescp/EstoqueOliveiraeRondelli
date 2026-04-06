@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
+    {% endblock %}
     <title>Estoque Oliveira e Rondelli</title>
 </head>
 <body>
     {% block content %}
     <h1>Usuários</h1>
+    <table class="container-usuarios">
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Admin?</th>
+                <th>Status</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario }}</td>
+                <td>
+                    {% if usuario.is_superuser == True %}
+                        <span><b>Sim</b></span>
+                    {% else %}
+                        <span>Não</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if usuario.is_active %}
+                        <span>Ativo</span>
+                    {% else %}
+                        <span>Inativo</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'usuario' usuario.id %}" class="botao-editar">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!--
     <ul>
         {% for usuario in usuarios %}
             <li>{{ usuario }}</li>
@@ -16,8 +55,9 @@
             <li>Não existe usuário cadastrado.</li>
         {% endfor %}
     </ul>
-    <div>
-        <button><a href="{% url 'registrar' %}">Cadastrar Usuário</a></button>
+    -->
+    <div class="container-botao">
+        <a href="{% url 'registrar' %}"><button class="botao-cadastrar">Cadastrar Usuário</button></a>
     </div>
     {% endblock content %}
 </body>

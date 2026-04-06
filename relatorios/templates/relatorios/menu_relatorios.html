@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/relatorios.css' %}">
+    {% endblock %}
     <title>Estoque Oliveira e Rondelli</title>
 </head>
 <body>
     {% block content %}
     <h1>Seleção de Relatórios</h1>
-    <p>Selecione o relatório que você deseja gerar:</p>
-    <br>
+    <p id="menu-relatorio">Selecione o relatório que você deseja gerar:</p>
     <div>
-        <div>
+        <div class="menu-relatorios">
             <h3>Estoque</h3>
             <p>Relatório completo dos produtos em estoque.</p>
-            <button><a href="{% url 'relatorio_estoque' %}">Gerar</a></button>
+            <div class="container-botao">
+                <a href="{% url 'relatorio_estoque' %}"><button class="botao-gerar">Gerar</button></a>
+            </div>
         </div>
-        <br>
-        <div>
+        <div class="menu-relatorios">
             <h3>Movimentações</h3>
             <p>Relatório das movimentações feitas.</p>
-            <button><a href="{% url 'relatorio_movimentacoes' %}">Gerar</a></button>
+            <div class="container-botao">
+                <a href="{% url 'relatorio_movimentacoes' %}"><button class="botao-gerar">Gerar</button></a>
+            </div>
         </div>
     </div>
     {% endblock content %}

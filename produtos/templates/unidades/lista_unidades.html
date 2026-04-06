@@ -13,15 +13,15 @@
 <body>
     {% block content %}
     <h1>Unidades</h1>
-    <ul>
+    <ul class="lista_unidades">
         {% for unidade in unidades %}
             <li>{{ unidade }} - <b>{{ unidade.uni_sigla }}</b></li>
         {% empty %}
             <li>Não existe produto cadastrado.</li>
         {% endfor %}
     </ul>
-    <div>
-        <button><a href="{% url 'nova_unidade' %}">Nova Unidade</a></button>
+    <div class="container-botao">
+        <a href="{% url 'nova_unidade' %}"><button class="botao-novo-produto">Nova Unidade</button></a>
     </div>
     {% endblock content %}
 </body>

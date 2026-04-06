@@ -1,39 +1,84 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/relatorios.css' %}">
+    {% endblock %}
     <title>Estoque Oliveira e Rondelli</title>
 </head>
 <body>
     {% block content %}
     <h1>Relatório das Movimentações</h1>
-    <br>
-    <form method="get">
-        {{ filtro.form.as_p }}
-        <button type="submit">Pesquisar</button>
-        <button><a href="{% url 'relatorio_movimentacoes' %}">Limpar Filtros</a></button>
-    </form>
-    <ul>
-        {% for movimentacao in movimentacoes %}
-            <li>Produto: {{ movimentacao.mov_produto }}</li>
-            <p>Tipo de Operação: {{ movimentacao.mov_tipo }}</p>
-            <p>Quantidade: {{ movimentacao.mov_quantidade }}</p>
-            {% if movimentacao.mov_tipo == 'E' %}
-                <p>Valor: {{ movimentacao.mov_custo }}</p>
-            {% endif %}
-            <p>Saldo após movimentação: {{ movimentacao.mov_saldo_movimento }}</p>
-            <p>Movimentação feita em {{ movimentacao.mov_data_adicionada|date:"d/m/Y H:i" }} por {{ movimentacao.mov_usuario }}.</p>
-            <br>
-        {% empty %}
-            <li>Não existe movimentação feita.</li>
-        {% endfor %}
-    </ul>
-    <br>
-    <div>
-        <button onclick="window.print()">Imprimir</button>
-        <button><a href="{% url 'relatorios' %}">Voltar</a></button>
+    <div class="container-relatorio">
+        <div class="container-formulario">
+            <form method="get" class="formulario">
+                {{ filtro.form.as_p }}
+                <div class="container-botao">
+                    <button class="botao-pesquisar" type="submit">Pesquisar</button>
+                    <a href="{% url 'relatorio_movimentacoes' %}" class="botao-voltar">Limpar Filtros</a>
+                </div>
+            </form>
+        </div>
+        <table class="movimentacoes">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Tipo</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Saldo após Movimentação</th>
+                    <th>Data/Usuário</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movimentacao in movimentacoes %}
+                <tr>
+                    <td><b>{{ movimentacao.mov_produto }}</b></td>
+                    <td>
+                        {% if movimentacao.mov_tipo == 'E' %}
+                            <span class="entrada">Entrada</span>
+                        {% else %}
+                            <span class="saida">Saída</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ movimentacao.mov_quantidade }}</td>
+                    <td>
+                        {% if movimentacao.mov_tipo == 'E' %}
+                            <span>R$ {{ movimentacao.mov_custo }}</span>
+                        {% else %}
+                            <span>-</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ movimentacao.mov_saldo_movimento }}</td>
+                    <td>{{ movimentacao.mov_data_adicionada|date:"d/m/Y H:i" }} por {{ movimentacao.mov_usuario }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!--
+        <ul>
+            {% for movimentacao in movimentacoes %}
+                <li>Produto: {{ movimentacao.mov_produto }}</li>
+                <p>Tipo de Operação: {{ movimentacao.mov_tipo }}</p>
+                <p>Quantidade: {{ movimentacao.mov_quantidade }}</p>
+                {% if movimentacao.mov_tipo == 'E' %}
+                    <p>Valor: {{ movimentacao.mov_custo }}</p>
+                {% endif %}
+                <p>Saldo após movimentação: {{ movimentacao.mov_saldo_movimento }}</p>
+                <p>Movimentação feita em {{ movimentacao.mov_data_adicionada|date:"d/m/Y H:i" }} por {{ movimentacao.mov_usuario }}.</p>
+            {% empty %}
+                <li>Não existe movimentação feita.</li>
+            {% endfor %}
+        </ul>
+        -->
+        <div class="container-botao">
+            <button class="botao-imprimir" onclick="window.print()">Imprimir</button>
+            <a href="{% url 'relatorios' %}"><button class="botao-voltar">Voltar</button></a>
+        </div>
     </div>
     {% endblock content %}
 </body>

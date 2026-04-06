@@ -63,6 +63,36 @@ h1 {
     color: #666;
 }
 
+/*Lista das Unidades*/
+.lista_unidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    list-style: none;
+}
+
+/*Unidades*/
+.lista_unidades li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: rgba(56, 66, 82);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/*Efeito ao passar o mouse no Produto*/
+.lista_unidades li:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
 /*Container do Botão*/
 .container-botao {
     text-align: center;
@@ -75,20 +105,28 @@ h1 {
 .botao-alterar-produto,
 .botao-voltar,
 .botao-salvar {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #f8f9fa; 
-    color: rgba(56, 66, 82);   
-    text-decoration: none;
-    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    min-width: 150px;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: bold;
+    text-decoration: none;
+    color: rgba(56, 66, 82);
+    background-color: #f8f9fa;
     border: 2px solid rgba(56, 66, 82);
-    transition: all 0.3s ease;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-sizing: border-box;
 }
 
 /*Efeito ao passar o mouse nos Botões*/
 .botao-novo-produto:hover,
-.botao-alterar-produto:hover ,
+.botao-alterar-produto:hover,
 .botao-voltar:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
