@@ -1,0 +1,76 @@
+/*Container do Manual*/
+.container-manual {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/*Cabeçalho do Manual*/
+.header-manual {
+    text-align: center;
+    margin-bottom: 40px;
+}
+/*Passo a Passo*/
+.passo {
+    display: flex;
+    background: white;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 5px solid rgba(56, 66, 82);
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.numero-passo {
+    background: rgba(56, 66, 82);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/*Conteúdo do Manual*/
+.conteudo h3 {
+    margin-top: 0;
+    color: rgba(56, 66, 82);
+}
+
+/*Container do Botão*/
+.container-botao {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/*Botões*/
+.botao-voltar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    min-width: 150px;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(56, 66, 82);
+    background-color: #f8f9fa;
+    border: 2px solid rgba(56, 66, 82);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+/*Efeito ao passar o mouse nos Botões*/
+.botao-voltar:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

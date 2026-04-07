@@ -1,0 +1,98 @@
+h1 {
+    text-align: center;
+    color: rgba(56, 66, 82);
+}
+
+.container-bem-vindo {
+    padding: 0 20px 20px 20px;
+}
+
+.dashboard-produtos {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os topos */
+    gap: 40px;
+    margin: 20px;
+}
+
+.container-card {
+    flex: 1; /* Ocupa metade do espaço */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 5px solid rgba(56, 66, 82);
+    min-width: 200px;
+    text-align: center;
+}
+
+.container-painel {
+    flex: 2; /* Faz a tabela ser mais larga que o card */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 5px solid rgba(56, 66, 82);
+}
+
+.painel {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.painel th, .painel td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-manuais {
+    margin: 50px 20px 0 20px; /* Alinha com a margem da dashboard-produtos */
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 5px solid rgba(56, 66, 82);
+}
+
+.dashboard-manuais h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.manuais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center
+}
+
+.item-manual {
+    background-color: #fff;
+    color: rgba(56, 66, 82);
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Efeito suave ao passar o mouse */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Efeito Hover (ao passar o mouse) */
+.item-manual:hover {
+    background-color: rgba(56, 66, 82);
+    color: #fff;
+    transform: translateY(-3px); /* Leve pulinho para cima */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

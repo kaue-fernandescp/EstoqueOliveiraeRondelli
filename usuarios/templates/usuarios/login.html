@@ -13,8 +13,12 @@
 <body>
     {% block content %}
         <main>
+            <div class="container-logo">
+                <img class="logo" src="{% static 'imagens/logo.png' %}" alt="Logo Oliveira e Rondelli">
+            </div>
             <div class="container-formulario">
-                <h1 id="login">Login</h1>
+                <h2 class="login-p">Gerenciamento de Material de Consumo</h2>
+                <h3 class="login-h">Login</h3>
                 <form class="formulario" action="{% url 'login' %}" method='post'>
                     {% csrf_token %}
                     {{ form.as_p }}

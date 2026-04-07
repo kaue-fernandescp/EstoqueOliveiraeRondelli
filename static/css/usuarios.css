@@ -51,12 +51,33 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; 
+    min-height: 70vh; 
     width: 100%;
 }
 
-#login {
-    padding: 0 0 50px 0;
+.container-logo{
+    padding: 50px;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 600px;
+}
+
+.login-h {
+    margin-bottom: 30px;
+    text-align: center;
+    color: rgba(56, 66, 82);
+}
+
+.login-p {
+    text-align: center;
+    color: rgba(56, 66, 82);
+    padding: 30px;
 }
 
 /*Container do Formulário*/

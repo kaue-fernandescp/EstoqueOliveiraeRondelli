@@ -12,7 +12,7 @@ def lista_produtos(request):
     if pesquisa:
         produtos = Produtos.objects.filter(pro_descricao__icontains=pesquisa)
     else:
-        produtos = Produtos.objects.order_by('pro_saldo')[:5]
+        produtos = Produtos.objects.order_by('-pro_saldo')[:5]
     context = {'produtos': produtos}
     return render(request, 'produtos/lista_produtos.html', context)
 

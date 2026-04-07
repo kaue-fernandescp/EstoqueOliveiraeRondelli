@@ -17,7 +17,7 @@ class Unidades(models.Model):
     class Meta:
         verbose_name = 'Unidade'
         verbose_name_plural = 'Unidades'
-        ordering = ['-uni_nome']
+        ordering = ['uni_nome']
 
 # Tabela dos Produtos
 class Produtos(models.Model):
@@ -57,4 +57,4 @@ class Produtos(models.Model):
     class Meta:                                        
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
-        ordering = ['-pro_descricao']
+        ordering = ['pro_descricao']

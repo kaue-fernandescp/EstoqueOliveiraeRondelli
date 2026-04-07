@@ -26,6 +26,9 @@
         </form>
     </div>
     <div class="container-produtos">
+        {% if not request.GET.search %}
+            <p id="primeiros-quantidade">Os 5 primeiros produtos com maior quantidade em estoque:</p>
+        {% endif %}
         <ul class="lista_produtos">
             {% for produto in produtos %}
                 <a href="{% url 'produto' produto.id %}"><li>{{ produto }}</li></a>
