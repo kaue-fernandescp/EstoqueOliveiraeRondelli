@@ -12,7 +12,8 @@
 </head>
 <body>
     {% block content %}
-    <form action="{% url 'alterar_produto' produto.id %}" method="post">
+    <div class="container-formulario">
+    <form class="formulario" action="{% url 'alterar_produto' produto.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="container-botao">
@@ -20,6 +21,7 @@
             <button class="botao-salvar" name="submit">Salvar</button>
         </div>
         </form>
+    </div>
     {% endblock content %}
 </body>
 </html>

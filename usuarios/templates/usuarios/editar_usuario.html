@@ -12,14 +12,16 @@
 </head>
 <body>
     {% block content %}
-    <form action="{% url 'usuario' usuario.id %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="container-botao">
-            <a href="{% url 'usuarios' %}" class="botao-voltar">Voltar</a>
-            <button class="botao-salvar" name="submit">Salvar</button>
-        </div>
+    <div class="container-formulario">
+        <form class="formulario" action="{% url 'usuario' usuario.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="container-botao">
+                <a href="{% url 'usuarios' %}" class="botao-voltar">Voltar</a>
+                <button class="botao-salvar" type="submit">Salvar</button>
+            </div>
         </form>
+    </div>
     {% endblock content %}
 </body>
 </html>

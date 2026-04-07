@@ -12,17 +12,17 @@
 </head>
 <body>
     {% block content %}
-    <p>Adicione uma nova unidade:</p>
-    <div class="container-botao">
-        <a href="{% url 'unidades' %}"><button class="botao-voltar">Voltar</button></a>
+    <h1>Adicione uma nova unidade:</h1>
+    <div class="container-formulario">
+        <form class="formulario" action="{% url 'nova_unidade' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="container-botao">
+                <a href="{% url 'unidades' %}" class="botao-voltar">Voltar</a>
+                <button class="botao-salvar" name="submit">Adicionar</button>
+            </div>
+        </form>
     </div>
-    <form action="{% url 'nova_unidade' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="container-botao">
-            <button class="botao-salvar" name="submit">Adicionar</button>
-        </div>
-    </form>
     {% endblock content %}
 </body>
 </html>

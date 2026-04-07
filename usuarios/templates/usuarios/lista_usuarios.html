@@ -13,49 +13,42 @@
 <body>
     {% block content %}
     <h1>Usuários</h1>
-    <table class="container-usuarios">
-        <thead>
-            <tr>
-                <th>Usuário</th>
-                <th>Admin?</th>
-                <th>Status</th>
-                <th>Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for usuario in usuarios %}
-            <tr>
-                <td>{{ usuario }}</td>
-                <td>
-                    {% if usuario.is_superuser == True %}
-                        <span><b>Sim</b></span>
-                    {% else %}
-                        <span>Não</span>
-                    {% endif %}
-                </td>
-                <td>
-                    {% if usuario.is_active %}
-                        <span>Ativo</span>
-                    {% else %}
-                        <span>Inativo</span>
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="{% url 'usuario' usuario.id %}" class="botao-editar">Editar</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <!--
-    <ul>
-        {% for usuario in usuarios %}
-            <li>{{ usuario }}</li>
-        {% empty %}
-            <li>Não existe usuário cadastrado.</li>
-        {% endfor %}
-    </ul>
-    -->
+    <div class="container-usuarios">
+        <table class="usuarios">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Admin?</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario }}</td>
+                    <td>
+                        {% if usuario.is_superuser == True %}
+                            <span><b>Sim</b></span>
+                        {% else %}
+                            <span>Não</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if usuario.is_active %}
+                            <span>Ativo</span>
+                        {% else %}
+                            <span>Inativo</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'usuario' usuario.id %}" class="botao-editar">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div class="container-botao">
         <a href="{% url 'registrar' %}"><button class="botao-cadastrar">Cadastrar Usuário</button></a>
     </div>

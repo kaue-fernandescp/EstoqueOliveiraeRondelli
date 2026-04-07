@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/usuarios.css' %}">
+    {% endblock %}
     <title>Estoque Oliveira e Rondelli</title>
 </head>
 <body>
     {% block content %}
         <h1>Cadastro de Usuário</h1>
-        <button><a href="{% url 'usuarios' %}">Voltar</a></button>
-        <form action="{% url 'registrar' %}" method='post'>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button name="submit">Registrar</button>
-            <input type="hidden" name="next" value="{% url 'index' %}">
-        </form>
+        <div class="container-formulario">
+            <form class="formulario" action="{% url 'registrar' %}" method='post'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="container-botao">
+                    <a href="{% url 'usuarios' %}" class="botao-voltar">Voltar</a>
+                    <button class="botao-salvar" type="submit">Registrar</button>
+                    <input type="hidden" name="next" value="{% url 'index' %}">
+                </div>
+            </form>
+        </div>
     {% endblock content %}
 </body>
 </html>

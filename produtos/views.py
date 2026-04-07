@@ -8,7 +8,11 @@ from .forms import ProdutosForm, UnidadesForm
 # Função para retornar os produtos cadastrados apenas se o usuário estiver logado
 @login_required
 def lista_produtos(request):
-    produtos = Produtos.objects.order_by('pro_descricao')
+    pesquisa = request.GET.get('search')
+    if pesquisa:
+        produtos = Produtos.objects.filter(pro_descricao__icontains=pesquisa)
+    else:
+        produtos = Produtos.objects.order_by('pro_saldo')[:5]
     context = {'produtos': produtos}
     return render(request, 'produtos/lista_produtos.html', context)
 

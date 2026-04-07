@@ -8,10 +8,38 @@ h1 {
     padding: 20px;
 }
 
+.container-formulario{
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.formulario input,
+.formulario select {
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
 /*Container do Botão*/
 .container-botao {
     text-align: center;
     width: 100%;
+    padding: 20px;
 }
 
 /*Botões*/

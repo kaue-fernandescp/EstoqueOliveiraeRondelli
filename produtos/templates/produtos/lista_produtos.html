@@ -13,13 +13,28 @@
 <body>
     {% block content %}
     <h1>Produtos</h1>
-    <ul class="lista_produtos">
-        {% for produto in produtos %}
-            <a href="{% url 'produto' produto.id %}"><li>{{ produto }}</li></a>
-        {% empty %}
-            <li>Não existe produto cadastrado.</li>
-        {% endfor %}
-    </ul>
+    <div class="container-formulario">
+        <form method="get" action="{% url 'produtos' %}" class="formulario">
+            <p>
+                <label>Buscar Produto:</label>
+                <input type="text" name="search" placeholder="Digite o produto..." value="{{ request.GET.search }}">
+            </p>
+            <div class="container-botao">
+                <button type="submit" class="botao-pesquisar">Pesquisar</button>
+                <a href="{% url 'produtos' %}" class="botao-voltar">Limpar</a>
+            </div>
+        </form>
+    </div>
+    <div class="container-produtos">
+        <ul class="lista_produtos">
+            {% for produto in produtos %}
+                <a href="{% url 'produto' produto.id %}"><li>{{ produto }}</li></a>
+            {% empty %}
+                <li>Não existe produto cadastrado.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
     <div class="container-botao">
         <a href="{% url 'novo_produto' %}"><button class="botao-novo-produto">Novo Produto</button></a>
     </div>

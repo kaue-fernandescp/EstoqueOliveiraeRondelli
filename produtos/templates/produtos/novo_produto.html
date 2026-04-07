@@ -13,15 +13,16 @@
 <body>
     {% block content %}
     <h1>Adicione um novo Produto</h1>
-    <br>
-    <a href="{% url 'produtos' %}"><button class="botao-voltar">Voltar</button></a>
-    <form action="{% url 'novo_produto' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="container-botao">
-            <button class="botao-salvar" name="submit">Adicionar</button>
-        </div>
-    </form>
+    <div class="container-formulario">
+        <form action="{% url 'novo_produto' %}" method="post" class="formulario">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="container-botao">
+                <a href="{% url 'produtos' %}" class="botao-voltar">Voltar</a>
+                <button class="botao-salvar" name="submit">Adicionar</button>
+            </div>
+        </form>
+    </div>
     {% endblock content %}
 </body>
 </html>

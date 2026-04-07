@@ -1,15 +1,24 @@
 h1 {
     text-align: center;
     color: rgba(56, 66, 82);
+    padding: 0 0 10px 0;
+}
+
+/*Container de Produtos*/
+.container-produtos {
+    text-align: center;
+    width: 100%;
 }
 
 /*Lista dos Produtos*/
 .lista_produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px)); 
     gap: 20px;
-    padding: 20px;
+    padding: 30px;
     list-style: none;
+    justify-content: center; 
+    width: 100%;
 }
 
 /*Produtos*/
@@ -63,13 +72,20 @@ h1 {
     color: #666;
 }
 
+.container-unidades {
+    text-align: center;
+    width: 100%;
+}
+
 /*Lista das Unidades*/
 .lista_unidades {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px)); 
     gap: 20px;
-    padding: 20px;
+    padding: 30px;
     list-style: none;
+    justify-content: center; 
+    width: 100%;
 }
 
 /*Unidades*/
@@ -93,18 +109,46 @@ h1 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+.container-formulario{
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.formulario label,
+.formulario input {
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
 /*Container do Botão*/
 .container-botao {
     text-align: center;
-    margin: 30px 0;
     width: 100%;
+    padding: 20px;
 }
 
 /*Botões*/
 .botao-novo-produto,
 .botao-alterar-produto,
 .botao-voltar,
-.botao-salvar {
+.botao-salvar,
+.botao-pesquisar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -127,6 +171,7 @@ h1 {
 /*Efeito ao passar o mouse nos Botões*/
 .botao-novo-produto:hover,
 .botao-alterar-produto:hover,
-.botao-voltar:hover {
+.botao-voltar:hover,
+.botao-pesquisar:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
