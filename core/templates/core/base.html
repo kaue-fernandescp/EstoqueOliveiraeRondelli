@@ -16,7 +16,9 @@
                 <ul class="nav-list">
                     <li ><a href="{% url 'index' %}"><img id="logo" src="{% static 'imagens/logo.png' %}" alt="Logo Oliveira e Rondelli"></a></li>
                     <li><a href="{% url 'produtos' %}">Produtos</a></li>
-                    <li><a href="{% url 'unidades' %}">Unidades</a></li>
+                    {% if user.is_superuser %}
+                        <li><a href="{% url 'unidades' %}">Unidades</a></li>
+                    {% endif %}
                     <li><a href="{% url 'movimentacoes' %}">Movimentações</a></li>
                     <li><a href="{% url 'relatorios' %}">Relatórios</a></li>
                 </ul>

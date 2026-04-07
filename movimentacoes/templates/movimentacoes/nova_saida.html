@@ -13,14 +13,16 @@
 <body>
     {% block content %}
     <h1>Nova Saída</h1>
-    <form action="{% url 'nova_saida' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="container-botao">
-            <a href="{% url 'movimentacoes' %}" class="botao-salvar">Voltar</a>
-            <button class="botao-salvar" name="submit">Adicionar</button>
-        </div>
-    </form>
+    <div class="container-formulario">
+        <form class="formulario" action="{% url 'nova_saida' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="container-botao">
+                <a href="{% url 'movimentacoes' %}" class="botao-salvar">Voltar</a>
+                <button class="botao-salvar" name="submit">Adicionar</button>
+            </div>
+        </form>
+    </div>
     {% endblock content %}
 </body>
 </html>

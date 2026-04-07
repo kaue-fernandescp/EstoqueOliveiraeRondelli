@@ -9,7 +9,7 @@ class MovimentacaoForm(forms.ModelForm):
             'mov_produto',
             'mov_quantidade'
         ]
-        label = {
+        labels = {
             'Produto': '',
             'Quantidade': ''
         }

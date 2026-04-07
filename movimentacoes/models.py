@@ -15,7 +15,7 @@ class Movimentacao(models.Model):
     # Campos da tabela
     mov_produto = models.ForeignKey(Produtos, on_delete=models.PROTECT, related_name='movimentacoes', verbose_name='Produto')   # Chave estrangeira referenciando o produto da tabela Produtos
     mov_usuario = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Usuário')                                     # Chave estrangeira referenciando o usuário da tabela Usuários
-    mov_quantidade = models.PositiveIntegerField('Quantidade relativa à Unidade de Medida')                                     # Quantidade da movimentação
+    mov_quantidade = models.DecimalField('Quantidade relativa à Unidade de Medida', decimal_places=2, max_digits=10)                                     # Quantidade da movimentação
     mov_tipo = models.CharField('Tipo de Movimentação', max_length=1, choices=TIPO_MOVIMENTACAO)                                # Tipo da movimentação
     mov_saldo_movimento = models.IntegerField('Saldo no momento:', editable=False, null=True)                                   # Saldo do produto após movimentação
     mov_custo = models.DecimalField('Valor da Compra', max_digits=10, decimal_places=2, null=True, blank=True)                   # Preço do produto que está entrando
