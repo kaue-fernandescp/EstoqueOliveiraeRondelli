@@ -1,16 +1,69 @@
 <!DOCTYPE html>
 {% extends "core/base.html" %}
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endblock %}
     <title>Oliveira e Rondelli</title>
 </head>
 <body>
     {% block content %}
-    <h1>Bem vindo!</h1>
-    <p>Este projeto é uma aplicação web completa desenvolvida para o escritório Oliveira & Rondelli Advocacia.</p>
-    <p>O sistema consiste numa aplicação de estoque para registrar as movimentações de entrada e saída dos produtos, bem como o cadastro de produtos. Além disso, conta com uma autenticação apra registro e auditorias. O sistema foi construído utilizando o framework Django.</p>
+    <div class="container-bem-vindo">
+        <h1>Bem vindo!</h1>
+        <p>Este projeto é uma aplicação web completa desenvolvida para o escritório Oliveira & Rondelli Advocacia.</p>
+        <p>O sistema consiste sistema de gerenciamento de estoque para registrar as movimentações de entrada e saída dos produtos, bem como o cadastro dos produtos. Além disso, conta com uma autenticação apra registro e auditorias. O sistema foi construído utilizando o framework Django.</p>
+    </div>
+    <div class="dashboard-produtos">
+        <div class="container-card">
+            <div class="card">
+                <h3>Total de Produtos</h3>
+                <p>{{ total_produtos }}</p>
+            </div>
+            <div class="card">
+                <h3>Custo Médio do Estoque</h3>
+                <p>R$ {{ total_custo_medio|floatformat:2 }}</p>
+            </div>
+        </div>
+        <div class="container-painel">
+            <h3>Estoque Crítico</h3>
+            <table class="painel">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Saldo Atual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in estoque_critico %}
+                        <tr>
+                            <td>{{ item.pro_descricao }}</td>
+                            <td>{{ item.pro_saldo }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td>Nenhum item com estoque baixo.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="dashboard-manuais">
+        <h3>Manuais para Utilização do Sistema</h3>
+        <div class="manuais">
+            <a href="{% url 'manual_produtos' %}" class="item-manual">Produtos</a>
+            <a href="{% url 'manual_movimentacoes' %}" class="item-manual">Movimentações</a>
+            <a href="#" class="item-manual">Relatórios</a>
+            {% if user.is_superuser %}
+                <a href="#" class="item-manual">Unidades</a>
+                <a href="#" class="item-manual">Usuários</a>
+            {% endif %}
+        </div>
+    </div>
     {% endblock content %}
 </body>
 </html>

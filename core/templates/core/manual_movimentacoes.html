@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/manuais.css' %}">
+    {% endblock %}
+    <title>Oliveira e Rondelli</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container-manual">
+        <div class="header-manual">
+            <div class="container-botao">
+                <a href="{% url 'index' %}" class="botao-voltar">Voltar</a>
+            </div>
+            <h1>Movimentações</h1>
+            <p>Como registrar entradas e saídas dos itens do nosso estoque corretamente.</p>
+        </div>
+        <div class="passo">
+            <div class="numero-passo">E</div>
+            <div class="conteudo">
+                <h3>Registro de Entrada</h3>
+                <p>Sempre que o escritório comprar/receber novos itens, uso o formulário de <strong>Nova Entrada</strong></p>
+                <ul>
+                    <li>O saldo do produto aumentára automaticamente ao realizar a entrada.</li>
+                    <li>O sistema grava o <strong>usuário</strong>logado (que fez a movimentação) e a <strong>data</strong>da operação.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="passo">
+            <div class="numero-passo">S</div>
+            <div class="conteudo">
+                <h3>Registro de Saídas</h3>
+                <p>Sempre que retirar um material para uso, ou quando tiver alguma saída dele, utilize o fomrulário de <strong>Nova Saída</strong>.</p>
+                <p><strong>Atenção: </strong>Registrar a saída no exato momento da retirada evita que o estoque fique desatualizado!</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>
