@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Produtos, Unidades
 from .forms import ProdutosForm, UnidadesForm
+from usuarios.views import verifica_admin
+from django.contrib.auth.decorators import user_passes_test
 
 # Função para retornar os produtos cadastrados apenas se o usuário estiver logado
 @login_required
@@ -51,14 +53,14 @@ def alterar_produto(request, id):
     return render(request, 'produtos/alterar_produto.html', context)
 
 # Função para retornar as unidades cadastradas apenas se o usuário estiver logado
-@login_required
+@user_passes_test(verifica_admin)
 def lista_unidades(request):
     unidades = Unidades.objects.order_by('uni_nome')
     context = {'unidades': unidades}
     return render(request, 'unidades/lista_unidades.html', context)
 
 # Função para adicionar uma nova unidade apenas se o usuário estiver logado
-@login_required
+@user_passes_test(verifica_admin)
 def nova_unidade(request):
     if request.method != 'POST':               
         form = UnidadesForm()
