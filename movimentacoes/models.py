@@ -28,7 +28,7 @@ class Movimentacao(models.Model):
     # Realiza cálculo do saldo do estoque
     def save(self, *args, **kwargs):
         with transaction.atomic():
-            produto = Produtos.objects.select_for_update().get(pk=self.mov_produto.pk)
+            produto = Produtos.objects.select_for_update().get(id=self.mov_produto.id)
             if self.mov_tipo == 'E':
                 produto.pro_saldo += self.mov_quantidade
                 produto.pro_custo_medio = self.mov_custo / self.mov_quantidade

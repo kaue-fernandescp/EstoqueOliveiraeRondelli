@@ -10,7 +10,7 @@ def home(request):
     total_produtos = Produtos.objects.count()
 
     media = Produtos.objects.aggregate(total=Sum(F('pro_saldo') * F('pro_custo_medio'), output_field=FloatField()))
-    total_custo_medio = media['total']
+    total_custo_medio = media['total'] or 0
 
     estoque_critico = Produtos.objects.filter(pro_saldo__lt=5).order_by('pro_saldo')
     ultimas_movimentacoes = Movimentacao.objects.all().order_by('-mov_data_adicionada')[:5]
