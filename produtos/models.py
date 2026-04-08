@@ -24,7 +24,7 @@ class Produtos(models.Model):
     pro_referencia = models.CharField('Referência', max_length=20, default='SEM-REF')                                                       # Referência do produto
     pro_descricao = models.TextField('Descrição')                                                                                           # Descrição do produto
     pro_unidade = models.ForeignKey(Unidades, on_delete=models.PROTECT, verbose_name='Unidade', default=1)                                  # Chave estrangeira referenciando a unidade da tabela Unidades
-    pro_custo_medio = models.DecimalField('movimentacoes.Movimentacao', decimal_places=2, max_digits=10, default=0)                         # Custo médio
+    pro_custo_medio = models.DecimalField('Custo Médio', decimal_places=2, max_digits=10, default=0)                         # Custo médio
     pro_saldo = models.DecimalField('Saldo', decimal_places=2, max_digits=10, default=0)                                                    # Saldo do produto no estoque
     pro_data_adicionada = models.DateTimeField(auto_now_add=True)                                                                            # Data em que o produto foi adicionado
     pro_data_modificado = models.DateTimeField(auto_now=True)                                                                               # Data em que o produto foi modificado
