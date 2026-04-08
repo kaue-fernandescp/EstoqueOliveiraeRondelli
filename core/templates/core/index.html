@@ -13,9 +13,12 @@
 <body>
     {% block content %}
     <div class="container-bem-vindo">
-        <h1>Bem vindo!</h1>
-        <p>Este projeto é uma aplicação web completa desenvolvida para o escritório Oliveira & Rondelli Advocacia.</p>
-        <p>O sistema consiste sistema de gerenciamento de estoque para registrar as movimentações de entrada e saída dos produtos, bem como o cadastro dos produtos. Além disso, conta com uma autenticação apra registro e auditorias. O sistema foi construído utilizando o framework Django.</p>
+        <h1>Gerenciamento de Estoque</h1>
+        <p class="apresentacao">
+            Bem vindo ao <strong>Sistema de Gerenciamento de Estoque do escritório Oliveira e Rondelli</strong>.
+            Esta plataforma foi desenvolvida para centralizar o controle dos produtos do escritório, permitindo o monitoramento em tempo real de saldo, fluxos e de auditorias.
+            Utilize o painel abaixo para uma visão estratégica do estoque e acesso aos manuais de operação.
+        </p>
     </div>
     <div class="dashboard-produtos">
         <div class="container-card">
@@ -24,7 +27,7 @@
                 <p>{{ total_produtos }}</p>
             </div>
             <div class="card">
-                <h3>Custo Médio do Estoque</h3>
+                <h3>Valor Total em Estoque</h3>
                 <p>R$ {{ total_custo_medio|floatformat:2 }}</p>
             </div>
         </div>

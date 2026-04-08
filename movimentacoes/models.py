@@ -31,7 +31,7 @@ class Movimentacao(models.Model):
             produto = Produtos.objects.select_for_update().get(pk=self.mov_produto.pk)
             if self.mov_tipo == 'E':
                 produto.pro_saldo += self.mov_quantidade
-                produto.pro_custo_medio = produto.custo_medio()
+                produto.pro_custo_medio = self.mov_custo / self.mov_quantidade
             else:
                 if self.mov_tipo == 'S' and produto.pro_saldo < self.mov_quantidade:
                     raise ValueError('Saldo em estoque insuficiente.')

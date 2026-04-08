@@ -2,15 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from produtos.models import Produtos
 from movimentacoes.models import Movimentacao
-from django.db.models import Sum
+from django.db.models import Sum, F, FloatField
 
 # Função para retornar o dashboard da tela inicial apenas como usuário logado
 @login_required
 def home(request):
     total_produtos = Produtos.objects.count()
 
-
-    media = Produtos.objects.aggregate(total=Sum('pro_custo_medio'))
+    media = Produtos.objects.aggregate(total=Sum(F('pro_saldo') * F('pro_custo_medio'), output_field=FloatField()))
     total_custo_medio = media['total']
 
     estoque_critico = Produtos.objects.filter(pro_saldo__lt=5).order_by('pro_saldo')
