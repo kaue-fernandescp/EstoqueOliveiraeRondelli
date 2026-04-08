@@ -117,6 +117,28 @@ main {
     margin-top: 5px;
 }
 
+/* Seleciona o container dos campos do formulário */
+form p, .form-group, .field-wrapper {
+    display: flex;
+    flex-direction: column; /* Força a direção vertical */
+    align-items: center;    /* Centraliza os itens horizontalmente */
+    margin-bottom: 15px;    /* Espaço entre um campo e outro */
+    width: 100%;
+}
+
+/* Garante que o label (texto) fique em cima do input (caixa) */
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ajusta as checkboxes para não ficarem gigantes */
+input[type="checkbox"] {
+    width: auto;
+    margin-top: 5px;
+}
+
 /*Container do Botão*/
 .container-botao {
     text-align: center;

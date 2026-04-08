@@ -56,6 +56,10 @@
                     <td>{{ movimentacao.mov_saldo_movimento }}</td>
                     <td>{{ movimentacao.mov_data_adicionada|date:"d/m/Y H:i" }} por {{ movimentacao.mov_usuario }}</td>
                 </tr>
+                {% empty %}
+                <tr>
+                    <td>Nenhuma movimentação realizada.</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

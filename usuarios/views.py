@@ -28,7 +28,7 @@ def registrar_usuarios(request):
                 novo_usuario.is_staff = True
                 novo_usuario.is_superuser = True
             novo_usuario.save()
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('usuarios'))
     context = {'form': form}
     return render(request, 'usuarios/registrar_usuario.html', context)
 

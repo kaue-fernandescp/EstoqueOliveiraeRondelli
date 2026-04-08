@@ -17,7 +17,7 @@
         <form method="get" action="{% url 'produtos' %}" class="formulario">
             <p>
                 <label>Buscar Produto:</label>
-                <input type="text" name="search" placeholder="Digite o produto..." value="{{ request.GET.search }}">
+                <input type="text" name="search" placeholder="Digite o nome do produto..." value="{{ request.GET.search }}">
             </p>
             <div class="container-botao">
                 <button type="submit" class="botao-pesquisar">Pesquisar</button>
@@ -27,7 +27,7 @@
     </div>
     <div class="container-produtos">
         {% if not request.GET.search %}
-            <p id="primeiros-quantidade">Os 5 primeiros produtos com maior quantidade em estoque:</p>
+            <p id="primeiros-quantidade">Os 5 produtos com as maiores quantidades em estoque:</p>
         {% endif %}
         <ul class="lista_produtos">
             {% for produto in produtos %}

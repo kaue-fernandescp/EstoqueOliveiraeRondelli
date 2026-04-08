@@ -13,18 +13,18 @@
 <body>
     {% block content %}
     <h1>Seleção de Relatórios</h1>
-    <p id="menu-relatorio">Selecione o relatório que você deseja gerar:</p>
+    <p id="menu-relatorio">Selecione o relatórios que deseja gerar:</p>
     <div>
         <div class="menu-relatorios">
             <h3>Estoque</h3>
-            <p>Relatório completo dos produtos em estoque.</p>
+            <p>Relatório detalhado dos produtos em estoque.</p>
             <div class="container-botao">
                 <a href="{% url 'relatorio_estoque' %}"><button class="botao-gerar">Gerar</button></a>
             </div>
         </div>
         <div class="menu-relatorios">
             <h3>Movimentações</h3>
-            <p>Relatório das movimentações feitas.</p>
+            <p>Relatório das movimentações realizadas.</p>
             <div class="container-botao">
                 <a href="{% url 'relatorio_movimentacoes' %}"><button class="botao-gerar">Gerar</button></a>
             </div>
