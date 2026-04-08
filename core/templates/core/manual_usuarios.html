@@ -17,34 +17,36 @@
             <div class="container-botao">
                 <a href="{% url 'index' %}" class="botao-voltar">Voltar</a>
             </div>
-            <h1>Unidades</h1>
-            <p>Gerencie os padrões de unidades de medidas dos produtos do sistema.</p>
+            <h1>Usuários</h1>
+            <p>Gerencie os usuários e níveis de acesso.</p>
             <p><strong>Apenas para usuários Administradores!</strong></p>
         </div>
         <div class="passo">
             <div class="numero-passo">01</div>
             <div class="conteudo">
                 <h3>Listagem</h3>
-                <p>A tela principal de unidades permite visualizar o que está cadastrado no sistema.</p>
+                <p>A tela principal de usuários retorna todos os usuários cadastrados no sistema.</p>
+                <p>Essa tela mostra se o usuário está <strong>ativo ou inativo</strong> e se é <strong>administrador ou não</strong>.</p>
             </div>
         </div>
         <div class="passo">
             <div class="numero-passo">02</div>
             <div class="conteudo">
-                <h3>Cadastrar Nova Unidade</h3>
-                <p>Utilize essa função para cadastrar uma nova unidade.</p>
-                <p>Clique em <strong>Nova Unidade</strong>, preencha o formulário e clique em salvar.</p>
-                <p>Ao cadastra uma nova unidade, ela ficará imediatamente disponível para ser selecionada na tela de <strong>cadastro/alteração de produtos</strong>.</p>
+                <h3>Registro de Novos Colaboradores</h3>
+                <p>Clique no botão <strong>Cadastrar Usuário</strong> para adicionar um novo usuário.</p>
+                <p>Defina um <strong>username</strong>único. O sistema registrará automaticamente quem criou o usuário para fins de auditoria.</p>
             </div>
         </div>
         <div class="passo">
             <div class="numero-passo">03</div>
             <div class="conteudo">
-                <h3>Editar uma Unidade</h3>
-                <p>Essa função só é permitida no painel administrativo.</p>
-                <p>Para acessá-lo, edite o seu link para ficar da seguinte maneira: <strong>localhost:8000/admin</strong>.</p>
-                <p>Clique em <strong>Unidades</strong> e depois sobre alguma unidade já cadastrada para editar.</p>
-                <strong>Atenção:</strong> Alterar ou excluir unidades pode afetar o histórico de produtos já cadastrados. Use com cautela.
+                <h3>Níveis de Permissão (Admin)</h3>
+                <p>Ao marcar um usuário como <strong>Administrador</strong>, ele passará a ter acesso aos seguintes módulos:</p>
+                <ul>
+                    <li>Cadastro/alteração de unidades;</li>
+                    <li>Gerenciamento de usuários;</li>
+                    <li>Painel administrativo.</li>
+                </ul>
             </div>
         </div>
     </div>

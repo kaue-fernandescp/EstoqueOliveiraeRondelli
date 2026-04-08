@@ -32,3 +32,18 @@ def manual_produtos(request):
 @login_required
 def manual_movimentacoes(request):
     return render(request, 'core/manual_movimentacoes.html')
+
+# Função que renderiza o manual de Relatórios apenas se o usuário estiver logado
+@login_required
+def manual_relatorios(request):
+    return render(request, 'core/manual_relatorios.html')
+
+# Função que renderiza o manual de Unidades apenas se o usuário estiver logado
+@login_required
+def manual_unidades(request):
+    return render(request, 'core/manual_unidades.html')
+
+# Função que renderiza o manual de Usuários apenas se o usuário estiver logado
+@login_required
+def manual_usuarios(request):
+    return render(request, 'core/manual_usuarios.html')

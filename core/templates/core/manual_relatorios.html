@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/manuais.css' %}">
+    {% endblock %}
+    <title>Oliveira e Rondelli</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container-manual">
+        <div class="header-manual">
+            <div class="container-botao">
+                <a href="{% url 'index' %}" class="botao-voltar">Voltar</a>
+            </div>
+            <h1>Relatórios</h1>
+            <p>Saiba como gerar relatórios e monitorar o estoque.</p>
+        </div>
+        <div class="passo">
+            <div class="numero-passo">01</div>
+            <div class="conteudo">
+                <h3>Relatório do Estoque</h3>
+                <p>Apresenta todo o estoque no exato momento.</p>
+                <ul>
+                    <li><strong>Ordem: </strong> Alfabética.</li>
+                    <li><strong>Utilidade: </strong>Conferência de saldo, custo e produtos.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="passo">
+            <div class="numero-passo">02</div>
+            <div class="conteudo">
+                <h3>Relatório de Movimentações</h3>
+                <p>Permite visualizar cada entrada e saída registrada no sistema.</p>
+                <p><strong>Filtros: </strong>Por produtos, tipo (entrada ou saída), usuário e intervalo de datas.</p>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>
