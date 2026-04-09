@@ -20,8 +20,10 @@ O sistema consiste numa aplicação de estoque para registrar as movimentações
 - relatorios/: Relatórios do sistema.
 - static/: Estilização.
 
+🔧 Para acessar a aplicação:
+- Clique no seguinte link: https://kauefernandescp.pythonanywhere.com/login/
 
-🔧 Como Executar o Projeto
+🔧 Para executar a aplicação local:
 - Clone o repositório: git clone https://github.com/kaue-fernancescp/EstoqueOliveiraeRondelli.git
 - Crie um ambiente virtual: python -m venv venv
 - Ative o ambiente:
