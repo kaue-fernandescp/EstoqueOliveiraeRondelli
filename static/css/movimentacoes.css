@@ -1,13 +1,16 @@
+/*Título da Página*/
 h1 {
     text-align: center;
     color: rgba(56, 66, 82);
 }
 
+/*Parágrafo da página de selecionar movimentação*/
 #movimentacao {
     text-align: center;
     padding: 20px;
 }
 
+/*Container do Formulário*/
 .container-formulario{
     background-color: #f8f9fa;
     padding: 30px;
@@ -20,6 +23,7 @@ h1 {
     align-items: center;
 }
 
+/*Parágrafo do Formulário*/
 .formulario p {
     margin: 0;
     display: flex;
@@ -28,6 +32,7 @@ h1 {
     font-size: 0.9rem;
 }
 
+/*Campos de escrever e selecionar do formulário*/
 .formulario input,
 .formulario select {
     padding: 8px;

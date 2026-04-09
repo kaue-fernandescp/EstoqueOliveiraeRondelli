@@ -1,8 +1,10 @@
+/*Título*/
 h1 {
     text-align: center;
     color: rgba(56, 66, 82);
 }
 
+/*Título no container bem-vindo*/
 .container-bem-vindo h1 {
     padding: 0 20px 20px 20px;
     margin-bottom: 5px;
@@ -11,6 +13,7 @@ h1 {
     letter-spacing: 1px;
 }
 
+/*Parágrafo de apresentação do site*/
 .apresentacao {
     text-align: justify;
     max-width: 800px;
@@ -19,21 +22,24 @@ h1 {
     font-size: 1.1rem;
 }
 
+/*Dashboard de produtos na tela inicial (Total de Produtos, Valor Total do Estoque e Estoque Crítico)*/
 .dashboard-produtos {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha os topos */
+    align-items: flex-start;
     gap: 40px;
     margin: 20px;
 }
 
+/*Container dos cards de Total de Produtos e Valor Total do Estoque*/
 .container-card {
-    flex: 1; /* Ocupa metade do espaço */
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+/*Card de Total de Produtos e Valor Total do Estoque*/
 .card {
     background-color: #fff;
     padding: 20px;
@@ -44,6 +50,7 @@ h1 {
     text-align: center;
 }
 
+/*Container do painel do Estoque Crítico*/
 .container-painel {
     flex: 2; /* Faz a tabela ser mais larga que o card */
     background: #fff;
@@ -53,20 +60,23 @@ h1 {
     border-left: 5px solid rgba(56, 66, 82);
 }
 
+/*Painel do Estoque Crítico*/
 .painel {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
 }
 
+/*Linhas do painel do Estoque Crítico*/
 .painel th, .painel td {
     text-align: left;
     padding: 12px;
     border-bottom: 1px solid #eee;
 }
 
+/*Dashboard dos Manuais*/
 .dashboard-manuais {
-    margin: 50px 20px 0 20px; /* Alinha com a margem da dashboard-produtos */
+    margin: 50px 20px 0 20px;
     padding: 25px;
     background-color: #fff;
     border-radius: 8px;
@@ -74,11 +84,13 @@ h1 {
     border-top: 5px solid rgba(56, 66, 82);
 }
 
+/*Título do Dashboard*/
 .dashboard-manuais h3 {
     text-align: center;
     margin-top: 0;
 }
 
+/*Container dos Manuais*/
 .manuais {
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +99,7 @@ h1 {
     justify-content: center
 }
 
+/*Manuais*/
 .item-manual {
     background-color: #fff;
     color: rgba(56, 66, 82);
@@ -95,16 +108,16 @@ h1 {
     border-radius: 6px;
     border: 1px solid #e9ecef;
     font-weight: 500;
-    transition: all 0.3s ease; /* Efeito suave ao passar o mouse */
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
-/* Efeito Hover (ao passar o mouse) */
+/* Efeito ao passar o mouse sobre o Manual*/
 .item-manual:hover {
     background-color: rgba(56, 66, 82);
     color: #fff;
-    transform: translateY(-3px); /* Leve pulinho para cima */
+    transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }

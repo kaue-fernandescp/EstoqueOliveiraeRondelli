@@ -52,14 +52,14 @@ def alterar_produto(request, id):
     context = {'produto': produto, 'form': form}
     return render(request, 'produtos/alterar_produto.html', context)
 
-# Função para retornar as unidades cadastradas apenas se o usuário estiver logado
+# Função para retornar as unidades cadastradas apenas se o usuário estiver logado e for Administrador
 @user_passes_test(verifica_admin)
 def lista_unidades(request):
     unidades = Unidades.objects.order_by('uni_nome')
     context = {'unidades': unidades}
     return render(request, 'unidades/lista_unidades.html', context)
 
-# Função para adicionar uma nova unidade apenas se o usuário estiver logado
+# Função para adicionar uma nova unidade apenas se o usuário estiver logado e for Administrador
 @user_passes_test(verifica_admin)
 def nova_unidade(request):
     if request.method != 'POST':               

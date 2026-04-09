@@ -1,9 +1,11 @@
+/*Títulos da Página*/
 h1 {
     text-align: center;
     color: rgba(56, 66, 82);
     padding: 0 0 10px 0;
 }
 
+/*Parágrafo da lista de produtos*/
 #primeiros-quantidade {
     margin-top: 20px;
 }
@@ -25,7 +27,7 @@ h1 {
     width: 100%;
 }
 
-/*Produtos*/
+/*Link para os Produtos*/
 .lista_produtos a {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -43,7 +45,7 @@ h1 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/*Estlo do Link*/
+/*Itens da lista de produtos*/
 .lista_produtos li{
     text-decoration: none;
     color: rgba(56, 66, 82);
@@ -51,7 +53,7 @@ h1 {
     font-size: 1.1rem;
 }
 
-/*Dados de um Produto*/
+/*Card contendo os dados do produto*/
 .dados-produto {
     background-color: white;
     border-radius: 10px;
@@ -62,7 +64,7 @@ h1 {
     border-top: 5px solid rgba(56, 66, 82); /* Faixa na cor da sua marca */
 }
 
-/*Produto*/
+/*Informações do produto*/
 .info-produto {
     display: flex;
     justify-content: space-between; /* Alinha rótulo na esquerda e valor na direita */
@@ -70,18 +72,19 @@ h1 {
     padding: 10px 0;
 }
 
-/*Label do Produto*/
+/*Nome da informação*/
 .info-label {
     font-weight: bold;
     color: #666;
 }
 
+/*Container das Unidades*/
 .container-unidades {
     text-align: center;
     width: 100%;
 }
 
-/*Lista das Unidades*/
+/*Lista das unidades*/
 .lista_unidades {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 300px)); 
@@ -92,7 +95,7 @@ h1 {
     width: 100%;
 }
 
-/*Unidades*/
+/*Itens da lista de unidades*/
 .lista_unidades li {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -107,12 +110,13 @@ h1 {
     font-size: 1.1rem;
 }
 
-/*Efeito ao passar o mouse no Produto*/
+/*Efeito ao passar o mouse nas unidades*/
 .lista_unidades li:hover{
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+/*Container do Formulário*/
 .container-formulario{
     background-color: #f8f9fa;
     padding: 30px;
@@ -125,6 +129,7 @@ h1 {
     align-items: center;
 }
 
+/*Parágrafo do Formulário*/
 .formulario p {
     margin: 0;
     display: flex;
@@ -133,6 +138,7 @@ h1 {
     font-size: 0.9rem;
 }
 
+/*Nome do campo e campo de inserir do formulário*/
 .formulario label,
 .formulario input {
     padding: 8px;

@@ -13,15 +13,16 @@
 <body>
     {% block content %}
     <div class="container-formulario">
-        <form class="formulario" action="{% url 'usuario' usuario.id %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <a href="{% url 'alterar_senha' usuario.id %}" class="botao-voltar">Alterar Senha</a>
-            <div class="container-botao">
-                <a href="{% url 'usuarios' %}" class="botao-voltar">Voltar</a>
-                <button class="botao-salvar" type="submit">Salvar</button>
-            </div>
-        </form>
+            <form class="formulario" method="post">
+                {% csrf_token %}
+                <p>Digite a nova senha para: <strong>{{ usuario.username }}</strong></p>
+                {{ form.as_p }}
+                <div class="container-botao">
+                    <a href="{% url 'usuario' usuario.id %}" class="botao-voltar">Voltar</a>
+                    <button class="botao-salvar" type="submit">Confirmar</button>
+                </div>
+            </form>
+        </div>
     </div>
     {% endblock content %}
 </body>

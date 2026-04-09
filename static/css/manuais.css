@@ -10,6 +10,7 @@
     text-align: center;
     margin-bottom: 40px;
 }
+
 /*Passo a Passo*/
 .passo {
     display: flex;
@@ -23,6 +24,7 @@
     gap: 20px;
 }
 
+/*Número do passo*/
 .numero-passo {
     background: rgba(56, 66, 82);
     color: white;

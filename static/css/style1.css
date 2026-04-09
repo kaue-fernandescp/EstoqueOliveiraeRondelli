@@ -1,3 +1,4 @@
+/*Reset*/
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +6,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/*Menu de navegação*/
 .menu {
     width: 100%;
 }
 
+/*Container do menu de navegação*/
 .nav-container {
     background-color: rgb(112, 112, 112);
     width: 100%;
@@ -19,6 +22,7 @@
     min-height: 80px;
 }
 
+/*Lista do menu de navegação e botão Sair*/
 .nav-list,
 .user-auth {
     list-style: none;
@@ -26,6 +30,7 @@
     align-items: center;
 }
 
+/*Links da lista do menu de navegação e botão Sair*/
 .nav-list li a,
 .user-auth a {
     color: white;
@@ -34,10 +39,7 @@
     text-decoration: none;
 }
 
-#logo {
-    height: 40px;
-}
-
+/*Efeito ao passar o mouse sobre os links da lista do menu de navegação e botão Sair*/
 .nav-list li a:hover,
 .user-auth a:hover {
     background-color: rgb(255, 255, 255);
@@ -45,11 +47,18 @@
     transition: background-color 0.3s;
 }
 
+/*Logo*/
+#logo {
+    height: 40px;
+}
+
+/*Restante do conteúdo*/
 .container {
     padding: 20px;
     min-height: 80vh;
 }
 
+/*Rodapé*/
 footer {
     text-align: center;
     background-color: rgba(187, 187, 187, 0.247);

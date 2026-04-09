@@ -1,21 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth.models import User
 from .forms import *
 
-# Função que realiza o logou do usuário
+# Função que realiza o logout do usuário
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-# Função que verifica se o usuário é Admin
+# Função que verifica se o usuário é Administrador
 def verifica_admin(usuario):
     return usuario.is_superuser
 
-# Função que realiza o cadastro de usuários apenas se o usuário for Admin
+# Função que realiza o cadastro de usuários apenas se o usuário for Administrador
 @user_passes_test(verifica_admin)
 def registrar_usuarios(request):
     if request.method != 'POST':                
@@ -32,14 +34,14 @@ def registrar_usuarios(request):
     context = {'form': form}
     return render(request, 'usuarios/registrar_usuario.html', context)
 
-# Função que retornar os usuários cadastrados apenas se o usuário for Admin
+# Função que retornar os usuários cadastrados apenas se o usuário for Administrador
 @user_passes_test(verifica_admin)
 def lista_usuarios (request):
     usuarios = User.objects.order_by('username')
     context = {'usuarios': usuarios}
     return render(request, 'usuarios/lista_usuarios.html', context)
 
-# Função que permite editar os usuário apenas se o usuário for Admin
+# Função que permite editar os usuário apenas se o usuário for Administrador
 @user_passes_test(verifica_admin)
 def editar_usuario(request, id):
     usuario = User.objects.get(id=id)
@@ -55,3 +57,21 @@ def editar_usuario(request, id):
             return HttpResponseRedirect(reverse('usuarios'))
     context = {'usuario': usuario, 'form': form}
     return render(request, 'usuarios/editar_usuario.html', context)
+
+# Função que permite o Administrador alterar a senha de outros usuários
+@user_passes_test(verifica_admin)
+def alterar_senha(request, id):
+    usuario = User.objects.get(id=id)
+    if request.method != 'POST':
+        form = SetPasswordForm(usuario)
+    else:
+        form = SetPasswordForm(usuario, request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Senha alterada com sucesso!')
+            return HttpResponseRedirect(reverse('usuarios'))
+    context = {
+        'form': form,
+        'usuario': usuario
+    }
+    return render(request, 'usuarios/alterar_senha.html', context)
