@@ -14,7 +14,7 @@ class MovimentacaoForm(forms.ModelForm):
             'Quantidade': ''
         }
 
-# Fomrulário para a movimentação do tipo entrada
+# Formulário para a movimentação do tipo entrada
 class EntradaForm(MovimentacaoForm):
     class Meta(MovimentacaoForm.Meta):
         fields = MovimentacaoForm.Meta.fields + ['mov_custo']

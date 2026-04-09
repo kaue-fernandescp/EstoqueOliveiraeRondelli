@@ -10,9 +10,10 @@ class FiltroMovimentacao(django_filters.FilterSet):
     # Filtro por produto
     produto = django_filters.ModelChoiceFilter(field_name='mov_produto', queryset=Produtos.objects.all().order_by('pro_descricao'), label='Produto:')
 
-    # Filtor por tipo de movimentação
+    # Filtro por tipo de movimentação
     tipo = django_filters.ChoiceFilter(field_name='mov_tipo', choices=Movimentacao.TIPO_MOVIMENTACAO, label='Tipo:')
 
+    # Filtro por usuário
     usuario = django_filters.ModelChoiceFilter(field_name='mov_usuario', queryset=User.objects.all().order_by('username'), label='Usuário:')
 
     # Filtro por intervalo de datas

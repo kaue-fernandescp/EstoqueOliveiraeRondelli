@@ -7,18 +7,19 @@ from django.db.models import Sum, F, FloatField
 # Função para retornar o dashboard da tela inicial apenas como usuário logado
 @login_required
 def home(request):
+    # Contagem do total de produtos cadastrados
     total_produtos = Produtos.objects.count()
 
+    # Cálculo do saldo do produto em estoque x o custo médio do produto
     media = Produtos.objects.aggregate(total=Sum(F('pro_saldo') * F('pro_custo_medio'), output_field=FloatField()))
     total_custo_medio = media['total'] or 0
 
+    # Filtragem para retornar os produtos que possuem saldo em estoque abaixo de 5
     estoque_critico = Produtos.objects.filter(pro_saldo__lt=5).order_by('pro_saldo')
-    ultimas_movimentacoes = Movimentacao.objects.all().order_by('-mov_data_adicionada')[:5]
     context = {
         'total_produtos': total_produtos,
         'total_custo_medio': total_custo_medio,
-        'estoque_critico': estoque_critico,
-        'ultimas_movimentacoes': ultimas_movimentacoes
+        'estoque_critico': estoque_critico
     }
     return render(request, 'core/index.html', context)
 

@@ -15,10 +15,10 @@ class Movimentacao(models.Model):
     # Campos da tabela
     mov_produto = models.ForeignKey(Produtos, on_delete=models.PROTECT, related_name='movimentacoes', verbose_name='Produto')   # Chave estrangeira referenciando o produto da tabela Produtos
     mov_usuario = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Usuário')                                     # Chave estrangeira referenciando o usuário da tabela Usuários
-    mov_quantidade = models.DecimalField('Quantidade relativa à Unidade de Medida', decimal_places=2, max_digits=10)                                     # Quantidade da movimentação
+    mov_quantidade = models.DecimalField('Quantidade relativa à Unidade de Medida', decimal_places=2, max_digits=10)            # Quantidade da movimentação
     mov_tipo = models.CharField('Tipo de Movimentação', max_length=1, choices=TIPO_MOVIMENTACAO)                                # Tipo da movimentação
     mov_saldo_movimento = models.IntegerField('Saldo no momento:', editable=False, null=True)                                   # Saldo do produto após movimentação
-    mov_custo = models.DecimalField('Valor da Compra', max_digits=10, decimal_places=2, null=True, blank=True)                   # Preço do produto que está entrando
+    mov_custo = models.DecimalField('Valor da Compra', max_digits=10, decimal_places=2, null=True, blank=True)                  # Preço total da compra
     mov_data_adicionada = models.DateTimeField(auto_now_add=True)                                                               # Data que foi adicionada
 
     # Retorna --> Produto - Unidade
@@ -29,12 +29,16 @@ class Movimentacao(models.Model):
     def save(self, *args, **kwargs):
         with transaction.atomic():
             produto = Produtos.objects.select_for_update().get(id=self.mov_produto.id)
+            
+            # Se o tipo de movimentação for ENTRADA, realiza o aumento do saldo e o cálculo do custo médio do produto
             if self.mov_tipo == 'E':
                 produto.pro_saldo += self.mov_quantidade
                 produto.pro_custo_medio = self.mov_custo / self.mov_quantidade
             else:
+                # Se o tipo de movimentação for SAÍDA e o saldo do produto for menor que a quantidade que está saindo, retorna uma mensagem de erro
                 if self.mov_tipo == 'S' and produto.pro_saldo < self.mov_quantidade:
                     raise ValueError('Saldo em estoque insuficiente.')
+                # Se não, diminui o saldo do produto
                 else:
                     produto.pro_saldo -= self.mov_quantidade
 
